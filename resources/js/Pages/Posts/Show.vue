@@ -1,0 +1,45 @@
+<script setup>
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import { defineProps } from 'vue';
+import { Head } from '@inertiajs/vue3';
+//import CommentsIndex from '@/Pages/Comments/Index.vue';
+//import CreateComment from '@/Components/Comments/Create.vue';
+
+// Define the props the component expects
+const props = defineProps({
+    post: Object,
+});
+</script>
+
+<template>
+  <Head title="Post Details" />
+
+  <AuthenticatedLayout>
+    <template #header>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Post Details</h2>
+    </template>
+
+    <div class="py-12">
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+          <div class="p-6 bg-white border-b border-gray-200">
+            <!-- Post Title and Body -->
+            <h1 class="text-2xl font-bold">{{ post.title }}</h1>
+            <p class="mt-4 text-gray-600">{{ post.body }}</p>
+
+            <!-- Comments Section -->
+            <!-- <div class="mt-8">
+              <h2 class="text-xl font-semibold">Comments</h2>
+              <CommentsIndex :post="post" :comments="comments" />
+            </div> -->
+
+            <!-- Create Comment Form -->
+            <!-- <div v-if="canComment" class="mt-4">
+              <CreateComment :post-id="post.id" />
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </AuthenticatedLayout>
+</template>
